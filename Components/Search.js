@@ -9,16 +9,14 @@ class Search extends React.Component {
         super(props)
         this.searchedText = ""
         this.state = {
-          musiques: getMusiqueFromApiWithSearchedText( this.searchedText).then(data => {
-            this.setState({ musiques: data })
-          })
+          musiques: []
         }
       }
       
     _loadMusiques() {
-      if (this.searchedText.length >= 0) {
+      if (this.searchedText.length > 0) {
         getMusiqueFromApiWithSearchedText(this.searchedText).then(data => {
-            this.setState({ musiques: data })
+            this.setState({ musiques: data.results })
         })
       }
     }
