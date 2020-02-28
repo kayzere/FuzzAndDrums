@@ -1,7 +1,7 @@
 export default data = [
     {
  
-        id:181808,
+      id:181808,
  
        vote_average:7.2,
  
@@ -11,7 +11,7 @@ export default data = [
  
        original_title:"There's A Time For Everything",
  
-       overview:"Overview",
+       overview:"Overview yeh boyyyyyyyyy",
  
        release_date:"2019-01-13"
  
