@@ -1,16 +1,21 @@
 // Components/MusiqueItem.js
 
 import React from 'react'
-import { StyleSheet, View, Text, Image } from 'react-native'
+import { getImageFromApi } from '../API/FuzzApi'
+import { StyleSheet, View, Text, Image, TouchableOpacity} from 'react-native'
+
+//https://image.tmdb.org/t/p/w300/dHhyFNvAGnc1vtXWXWnnEfG1dLO.jpg
 
 class MusiqueItem extends React.Component {
     render() {
-        const musique = this.props.musiques
+        const { musique, displayDetailForMusique } = this.props
         return (
-          <View style={styles.main_container}>
+          <TouchableOpacity
+              style={styles.main_container}
+              onPress={() => displayDetailForMusique(musique.id)}>
             <Image
-              style={styles.image}
-              source={{uri: "image"}}
+              style={styles.image}//getImageFromApi()
+              source={{uri: "https://scontent-cdg2-1.xx.fbcdn.net/v/t1.0-9/59943425_2568485369847935_4484562055981957120_o.jpg?_nc_cat=104&_nc_sid=730e14&_nc_ohc=1XrIMF-6bGIAX-tb2dP&_nc_ht=scontent-cdg2-1.xx&oh=84c4bb0f892dfe41eda4bce96d9cdfdb&oe=5EFC0B13"}}
             />
             <View style={styles.content_container}>
               <View style={styles.header_container}>
@@ -24,21 +29,20 @@ class MusiqueItem extends React.Component {
                 <Text style={styles.date_text}>Sorti le {musique.release_date}</Text>
               </View>
             </View>
-          </View>
+          </TouchableOpacity>
         )
     }
 }
 
 const styles = StyleSheet.create({
   main_container: {
-    height: 190,
+    height: 100,
     flexDirection: 'row'
   },
   image: {
-    width: 120,
-    height: 180,
-    margin: 5,
-    backgroundColor: 'gray'
+    width: 90,
+    height: 90,
+    margin: 5
   },
   content_container: {
     flex: 1,

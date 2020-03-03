@@ -1,25 +1,12 @@
 import React from 'react';
-import { View, StyleSheet, Image } from 'react-native';
-
+import { View, StyleSheet } from 'react-native';
 import ScreenName from './ScreenName.js'
-import Header from './Header.js'
 
 export default class Videos extends React.Component {
-
-  // Ne surtout pas modifier jusqu'à....(à part pour changer la racine de l'image pour que l'app fonctionne)
-  static navigationOptions = {
-    drawerIcon:(
-      <Image source={require('/home/thierryguette/MasterCCI/FuzzAndDrums/Images/icon/video.png')}
-      style={ {height:24, width:24}}/>
-    )
-
-  };
-  // ...là
 
   render() {
     return (
       <React.Fragment>
-        <Header />
         <View style={styles.container}>
           <ScreenName name={'Videos'} />
         </View>

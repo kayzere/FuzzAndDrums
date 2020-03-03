@@ -1,15 +1,12 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
-
-// pull in from DrawerTrigger.js
 import DrawerTrigger from './DrawerTrigger'
 
 class Header extends React.Component {
   render() {
     return (
-      
       <View style={styles.header}>
-        <DrawerTrigger />
+        <DrawerTrigger/>
       </View>
     )
   }
@@ -17,8 +14,7 @@ class Header extends React.Component {
 
 const styles = StyleSheet.create({
   header: {
-    height: 80,
-    paddingTop: 40,
+    marginTop:20,
     backgroundColor: 'black'
   }
 });
