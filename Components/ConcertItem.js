@@ -38,8 +38,9 @@ const styles = StyleSheet.create({
   main_container: {
     flex: 4,
     flexDirection: 'row',
-    marginRight: 50,
+    margin:15,
     backgroundColor: 'black'
+
   },
   image: {
     width: 50,
@@ -58,7 +59,8 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     color: 'white',
     fontSize: 20,
-    paddingRight: 5
+    paddingRight: 5,
+    
   }
 })
 

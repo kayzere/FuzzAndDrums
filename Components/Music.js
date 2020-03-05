@@ -73,16 +73,18 @@ export default class Music extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
       flex: 1,
-      backgroundColor: 'black'
+      backgroundColor: '#1B1B1B'
     },
     textInput: {
       height: 50,
       textAlign: 'center',
       color: 'white',
-      backgroundColor : 'black',
+      backgroundColor : '#1B1B1B',
       borderColor: 'white',
       borderWidth: 2,
-      fontSize: 20
+      fontSize: 20,
+      borderRadius:50,
+      margin:20,
     },
     loading_container: {
       position: 'absolute',

@@ -46,7 +46,7 @@ const styles = StyleSheet.create({
 
   viewStyle: {
     flex: 1,
-    backgroundColor: 'black',
+    backgroundColor: '#1B1B1B',
     justifyContent: 'center',
     alignItems: 'center'
   },

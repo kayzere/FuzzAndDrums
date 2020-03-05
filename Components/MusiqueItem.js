@@ -34,7 +34,7 @@ class MusiqueItem extends React.Component {
 const styles = StyleSheet.create({
   main_container: {
     flexDirection: 'row',
-    backgroundColor: 'black',
+    backgroundColor: '#1B1B1B',
     alignItems: 'center',
     marginRight: 50
   },
