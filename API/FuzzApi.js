@@ -1,5 +1,5 @@
 const API_TOKEN = "9ba3265fa4c0615501083ce55d7eebc1";
-const ip = "10.122.49.181"
+const ip = "172.23.130.165"
 const url = "http://" + ip + ":8000/public/";
 
 export function getMusiqueFromApiWithSearchedText(text){

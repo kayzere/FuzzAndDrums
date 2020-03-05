@@ -3,29 +3,29 @@ import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import { createStackNavigator } from "react-navigation-stack";
 import { Image, StyleSheet } from 'react-native';
-import { createDrawerNavigator } from 'react-navigation-drawer';
-import { Container, Content, Header } from 'native-base'
-import { DrawerItems } from 'react-navigation-drawer'
+import { createDrawerNavigator, DrawerItems } from 'react-navigation-drawer';
+import { Container, Content } from 'native-base'
 
 import Concerts from '../Components/Concerts';
+import ConcertDetail from '../Components/ConcertDetail';
 import Home from '../Components/Home';
 import Music from '../Components/Music';
 import MusiqueDetail from '../Components/MusiqueDetail'
-import Videos from '../Components/Videos';
 import Merchandising from '../Components/Merchandising';
 import Newsletter from '../Components/Newsletter';
+import News from '../Components/News';
 import About from '../Components/About';
 import DrawerTrigger from '../Components/DrawerTrigger';
+import VideoClips from '../Components/videoclips';
+import Clip from '../Components/clip';
 
 // DRAWER CONFIGURATION
 
 const CustomDrawerContentComponent = (props) => (
-  <Container>
-    <Header style={styles.drawerHeader}>
+  <Container style={styles.container}>
       <Image
           style={styles.drawerImage}
           source={require('../Images/fuzzanddrumsimageulule.png')}/>
-      </Header>
     <Content style={styles.content}>
       <DrawerItems {...props} />
     </Content>
@@ -35,23 +35,17 @@ const CustomDrawerContentComponent = (props) => (
 const styles = StyleSheet.create({
 
   container: {
-    justifyContent: 'center',
-    alignItems: 'center'
-  },
-
-  drawerHeader: {
-      height: 180,
-      backgroundColor: 'black'
+    flex: 1,
   },
   
   drawerImage: {
-    resizeMode: 'center',
-    marginTop: -78,
-    width: 300,
+    flex: 0.4,
+    resizeMode: 'stretch',
+    height: undefined,
+    width: undefined
   },
 
   content: {
-    marginTop: -20,
     backgroundColor: 'black'
   }
 })
@@ -59,13 +53,15 @@ const styles = StyleSheet.create({
 //////////////////////////////// LES STACKNAVIGATORS
 
 const HomeStack = createStackNavigator({
-  Music: {
+  Home: {
     screen: Home,
     navigationOptions: {
         title: 'Home',
         headerRight: () => <DrawerTrigger/>,
         headerTitleStyle: {
-          color: 'white'
+          color: 'white',
+          fontSize: 25,
+          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
@@ -78,13 +74,15 @@ const HomeStack = createStackNavigator({
 
 
 const ConcertsStack = createStackNavigator({
-  Music: {
+  Concert: {
     screen: Concerts,
     navigationOptions: {
         title: 'Concerts',
         headerRight: () => <DrawerTrigger/>,
         headerTitleStyle: {
-          color: 'white'
+          color: 'white',
+          fontSize: 25,
+          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
@@ -93,6 +91,23 @@ const ConcertsStack = createStackNavigator({
           color: 'red'
        }
     }},
+    ConcertDetail: {
+      screen: ConcertDetail,
+      navigationOptions: {
+          title: 'Concerts Détails',
+          headerRight: () => <DrawerTrigger/>,
+          headerTitleStyle: {
+            color: 'white',
+            fontSize: 25,
+            fontWeight: 'bold'
+         },
+         headerStyle: {
+          backgroundColor: 'black',
+         },
+         headerTintColor: {
+            color: 'red'
+         }
+      }},
   })
 
 const MusicStack = createStackNavigator({
@@ -102,7 +117,9 @@ const MusicStack = createStackNavigator({
         title: 'Musique',
         headerRight: () => <DrawerTrigger/>,
         headerTitleStyle: {
-          color: 'white'
+          color: 'white',
+          fontSize: 25,
+          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
@@ -118,7 +135,9 @@ const MusicStack = createStackNavigator({
         headerRight: () => <DrawerTrigger/>,
         headerTintColor: 'red',
         headerTitleStyle: {
-          color: 'white'
+          color: 'white',
+          fontSize: 25,
+          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
@@ -127,31 +146,53 @@ const MusicStack = createStackNavigator({
 })
 
 const VideosStack = createStackNavigator({
-  Music: {
-    screen: Videos,
+  VideoClips: {
+    screen: VideoClips,
     navigationOptions: {
-        title: 'Videos',
-        headerRight: () => <DrawerTrigger/>,
-        headerTitleStyle: {
-          color: 'white'
-       },
-       headerStyle: {
-        backgroundColor: 'black',
-       },
-       headerTintColor: {
-          color: 'red'
-       }
+      title: 'Videos',
+      headerRight: () => <DrawerTrigger/>,
+      headerTitleStyle: {
+        color: 'white',
+        fontSize: 25,
+        fontWeight: 'bold'
+     },
+     headerStyle: {
+      backgroundColor: 'black',
+     },
+     headerTintColor: {
+        color: 'red'
+     }
     }},
-  })
+    Clip: {
+    screen: Clip,
+    navigationOptions: {
+      title: 'Clip',
+      headerRight: () => <DrawerTrigger/>,
+      headerTitleStyle: {
+        color: 'white',
+        fontSize: 25,
+        fontWeight: 'bold'
+     },
+     headerStyle: {
+      backgroundColor: 'black',
+     },
+     headerTintColor: {
+        color: 'red'
+     }
+    }
+  }
+})
 
 const MerchandisingStack = createStackNavigator({
-  Music: {
+  Merch: {
     screen: Merchandising,
     navigationOptions: {
-        title: 'Merchandising',
+        title: 'Merch',
         headerRight: () => <DrawerTrigger/>,
         headerTitleStyle: {
-          color: 'white'
+          color: 'white',
+          fontSize: 25,
+          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
@@ -163,13 +204,15 @@ const MerchandisingStack = createStackNavigator({
   })
 
 const NewsletterStack = createStackNavigator({
-  Music: {
+  Newsletter: {
     screen: Newsletter,
     navigationOptions: {
         title: 'Newsletter',
         headerRight: () => <DrawerTrigger/>,
         headerTitleStyle: {
-          color: 'white'
+          color: 'white',
+          fontSize: 25,
+          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
@@ -181,19 +224,36 @@ const NewsletterStack = createStackNavigator({
   })
 
 const AboutStack = createStackNavigator({
-  Music: {
+  About: {
     screen: About,
     navigationOptions: {
         title: 'About',
         headerRight: () => <DrawerTrigger/>,
         headerTitleStyle: {
-          color: 'white'
+          color: 'white',
+          fontSize: 25,
+          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
        }
     }},
   })
+
+  const NewsStack = createStackNavigator({
+    News: {
+      screen: News,
+      navigationOptions: {
+          title: 'News',
+          headerRight: () => <DrawerTrigger/>,
+          headerTitleStyle: {
+            color: 'white'
+         },
+         headerStyle: {
+          backgroundColor: 'black',
+         }
+      }},
+    })
 
 //////////////////////////////// DRAWERNAGIVATOR
 
@@ -239,7 +299,7 @@ const DrawerNavigator = createDrawerNavigator(
     Five: {    
       screen: MerchandisingStack,
       navigationOptions: {
-      title: 'Merchandising',
+      title: 'Merch',
       drawerIcon:(
         <Image source={require('../Images/icon/shirt.png')}
         style={ {height:24, width:24}}/>
@@ -262,6 +322,15 @@ const DrawerNavigator = createDrawerNavigator(
         <Image source={require('../Images/icon/About.png')}
         style={ {height:24, width:24}}/>
       )
+    }},
+    Eight: {    
+      screen: NewsStack,
+      navigationOptions: {
+      title: 'News',
+      drawerIcon:(
+        <Image source={require('../Images/icon/newspaper.png')}
+        style={ {height:24, width:24}}/>
+      )
     }}
   },
 
@@ -269,6 +338,11 @@ const DrawerNavigator = createDrawerNavigator(
     contentOptions: {
       inactiveTintColor: 'white',
       activeTintColor: 'red',
+      activeBackgroundColor:'#1B1B1B',
+      labelStyle: {
+        fontSize:18,
+        fontWeight:'bold'
+      },
       iconContainerStyle: {
         opacity: 1
       }
@@ -277,6 +351,7 @@ const DrawerNavigator = createDrawerNavigator(
     drawerPosition: "right",
     drawerBackgroundColor: "black",
     initialRouteName: 'One',
+    backBehavior: 'history',
     contentComponent: CustomDrawerContentComponent,
     drawerOpenRoute: 'DrawerOpen',
     drawerCloseRoute: 'DrawerClose',

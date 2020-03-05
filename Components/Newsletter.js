@@ -2,7 +2,7 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import ScreenName from './ScreenName.js'
 
-export default class Home extends React.Component {
+export default class Newsletter extends React.Component {
 
   render() {
     return (

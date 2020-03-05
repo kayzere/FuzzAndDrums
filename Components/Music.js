@@ -1,4 +1,3 @@
-import Header from './Header.js'
 import React from 'react'
 import { StyleSheet, View, Button, TextInput, FlatList, ActivityIndicator, Image } from 'react-native'
 import MusiqueItem from './MusiqueItem'
@@ -16,7 +15,7 @@ export default class Music extends React.Component {
           })
         }
       }
-      
+
     _loadMusiques() {
       if (this.searchedText.length >= 0) {
         this.setState({ isLoading: true }) // Lancement du chargement
@@ -31,7 +30,7 @@ export default class Music extends React.Component {
 
     _searchTextInputChanged(text) {
         this.searchedText = text
-        this._loadMusiques()
+        //this._loadMusiques()
     }
 
     _displayLoading() {
@@ -54,7 +53,7 @@ export default class Music extends React.Component {
         <React.Fragment>
           <View style={styles.main_container}>
             <TextInput
-                style={styles.textinput}
+                style={styles.textInput}
                 placeholder='Rechercher'
                 onChangeText={(text) => this._searchTextInputChanged(text)}
                 onSubmitEditing={() => this._loadMusiques()}
@@ -74,16 +73,16 @@ export default class Music extends React.Component {
 const styles = StyleSheet.create({
     main_container: {
       flex: 1,
-      marginLeft: 5,
-      marginRight: 5
+      backgroundColor: 'black'
     },
-    textinput: {
-      marginTop: 5,
+    textInput: {
       height: 50,
-      color: '#000000',
-      borderColor: '#000000',
-      borderWidth: 0.5,
-      paddingLeft: 5
+      textAlign: 'center',
+      color: 'white',
+      backgroundColor : 'black',
+      borderColor: 'white',
+      borderWidth: 2,
+      fontSize: 20
     },
     loading_container: {
       position: 'absolute',

@@ -2,13 +2,13 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import ScreenName from './ScreenName.js'
 
-export default class Videos extends React.Component {
+export default class News extends React.Component {
 
   render() {
     return (
       <React.Fragment>
         <View style={styles.container}>
-          <ScreenName name={'Videos'} />
+          <ScreenName name={'News'} />
         </View>
       </React.Fragment>
     );
