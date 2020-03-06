@@ -18,6 +18,22 @@ export function getMusiqueFromApiWithId(id){
       .catch((error) => console.error(error))
   }
 
+  export function getVideosFromApiWithSearchedText(text){
+    const route = "videos/";
+    const tmp_url = url + route + text
+    return fetch(tmp_url)
+      .then((response) => response.json())
+      .catch((error) => console.error(error))
+  }
+
+  export function getHomeImagesFromApiWithSearchedText(){
+    const route = "homeImages/";
+    const tmp_url = url + route
+    return fetch(tmp_url)
+      .then((response) => response.json())
+      .catch((error) => console.error(error))
+  }
+
   export function getImageFromApi () {
     const route = "logos/";
     const tmp_url = url + route + "1";
