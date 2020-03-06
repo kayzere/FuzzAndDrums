@@ -54,7 +54,7 @@ export default class Home extends React.Component {
               </ImageBackground>
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => this.props.navigation.navigate("Videos")}>
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("VideoClips")}>
               <ImageBackground
                 source={require('../Images/FNDFondNoir.jpg')} 
                 style={{ marginBottom:40, width:400, height:150, opacity:0.5, justifyContent:'center'}} >
@@ -73,10 +73,8 @@ export default class Home extends React.Component {
           </Animated.View>
 
         </View>
-    );
-    
+    ); 
   }
-  
 }
 
 const styles = StyleSheet.create({
@@ -85,24 +83,14 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'flex-start',
     backgroundColor:'#1B1B1B',
-    
-    
-    
-    
   },
 
   textStyles:{
-    
     opacity:1, 
     position: 'absolute', 
     fontWeight: 'bold', 
     fontSize:80, 
     color:'red',
-    // backgroundColor:'white',
-    
-
-    
   },
-
 
 });

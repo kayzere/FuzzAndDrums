@@ -1,6 +1,6 @@
 const API_TOKEN = "9ba3265fa4c0615501083ce55d7eebc1";
-const ip = "172.23.130.165"
-const url = "http://" + ip + ":8000/public/";
+const ip = ""
+const url = "https://kayzere.me/public/index.php/"
 
 export function getMusiqueFromApiWithSearchedText(text){
     const route = "musique/";

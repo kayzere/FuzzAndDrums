@@ -26,7 +26,6 @@ class MusiqueItem extends React.Component {
                 </Text>
             </View>
           </TouchableOpacity>
-
         )
     }
 }

@@ -69,7 +69,7 @@ const HomeStack = createStackNavigator({
        headerTintColor: {
           color: 'red'
        }
-    }},
+    }}
   })
 
 

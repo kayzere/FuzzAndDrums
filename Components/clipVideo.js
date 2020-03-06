@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { StyleSheet, View, Text, TouchableOpacity} from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity} from 'react-native';
 import { globalStyles } from './global_stylesheet';
 import { Video } from 'expo-av';
 
@@ -22,10 +22,9 @@ export default class ClipVideo extends React.Component{
             </View>
                 <Video 
                     source={{uri:clip.uri}}   
-                    paused="true"
+                    paused={this.state.paused}
                     resizeMode="cover"
-                    shouldPlay
-                    isLooping
+                    shouldPlay="false"
                     style={globalStyles.videostyle}
                 />
             </TouchableOpacity>
