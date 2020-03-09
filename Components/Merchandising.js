@@ -1,6 +1,8 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
-import ScreenName from './ScreenName.js'
+import { View, StyleSheet,FlatList,Text } from 'react-native';
+import merchDetail from './MerchandasingDetail'
+import MerchandasingItem from './MerchandasingItem'
+
 
 export default class Merchandising extends React.Component {
 
@@ -8,7 +10,11 @@ export default class Merchandising extends React.Component {
     return (
       <React.Fragment>
         <View style={styles.container}>
-          <ScreenName name={'Merchandising'} />
+        <FlatList
+              data={merchDetail}
+              keyExtractor={(item) => item.id.toString()}
+              renderItem={({item}) => <MerchandasingItem merch={item} />}
+        />
         </View>
       </React.Fragment>
     );
@@ -18,7 +24,11 @@ export default class Merchandising extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems:'center',
+    backgroundColor:'#1B1B1B',
+
   },
+
+
 });
+

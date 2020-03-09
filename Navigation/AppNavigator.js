@@ -19,6 +19,14 @@ import DrawerTrigger from '../Components/DrawerTrigger';
 import VideoClips from '../Components/videoclips';
 import Clip from '../Components/clip';
 
+// test lloyd
+
+import { Text, View, Button, Animated, PanResponder, Dimensions, Easing, TouchableOpacity, SafeAreaView } from 'react-native';
+
+//import SongScreen from '../Components/Music/Song';
+//import SearchScreen from '../Components/Music/Search';
+//import StreamScreen from '../Components/Music/Stream';
+
 // DRAWER CONFIGURATION
 
 const CustomDrawerContentComponent = (props) => (
@@ -128,8 +136,8 @@ const MusicStack = createStackNavigator({
           color: 'red'
        }
     }},
-  MusiqueDetail: {
-    screen: MusiqueDetail,
+    MusiqueDetail: {
+      screen: MusiqueDetail,
         navigationOptions: {
         title: '',
         headerRight: () => <DrawerTrigger/>,
@@ -142,8 +150,63 @@ const MusicStack = createStackNavigator({
        headerStyle: {
         backgroundColor: 'black',
        }
-    }},
+    }
+  }
 })
+
+/*
+SearchScreen: {
+    screen: SearchScreen,
+        navigationOptions: {
+        title: 'SearchScreen',
+        headerRight: () => <DrawerTrigger/>,
+        headerTitleStyle: {
+          color: 'white',
+          fontSize: 25,
+          fontWeight: 'bold'
+       },
+       headerStyle: {
+        backgroundColor: 'black',
+       },
+       headerTintColor: {
+          color: 'red'
+       }
+    }},
+    StreamScreen: {
+      screen: StreamScreen,
+      navigationOptions: {
+          title: 'StreamScreen',
+          headerRight: () => <DrawerTrigger/>,
+          headerTitleStyle: {
+            color: 'white',
+            fontSize: 25,
+            fontWeight: 'bold'
+         },
+         headerStyle: {
+          backgroundColor: 'black',
+         },
+         headerTintColor: {
+            color: 'red'
+         }
+      }},
+    SongScreen: {
+      screen: SongScreen,
+      navigationOptions: {
+          title: 'SongScreen',
+          headerRight: () => <DrawerTrigger/>,
+          headerTitleStyle: {
+            color: 'white',
+            fontSize: 25,
+            fontWeight: 'bold'
+         },
+         headerStyle: {
+          backgroundColor: 'black',
+         },
+         headerTintColor: {
+            color: 'red'
+         }
+      }}
+*/
 
 const VideosStack = createStackNavigator({
   VideoClips: {

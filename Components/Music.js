@@ -46,6 +46,7 @@ export default class Music extends React.Component {
     _displayDetailForMusique = (idMusique) => {
         console.log("Display musique with id " + idMusique)
         this.props.navigation.navigate("MusiqueDetail", {idMusique: idMusique})
+        //this.props.navigation.navigate('player', {title: 'test', filepath: "./Music/images/NotMuchToSay.mp3"});
     }
 
     render() {
