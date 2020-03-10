@@ -2,6 +2,7 @@ import React from 'react'
 import { StyleSheet, View, Button, TextInput, FlatList, ActivityIndicator, Image } from 'react-native'
 import MusiqueItem from './MusiqueItem'
 import { getMusiqueFromApiWithSearchedText } from '../API/FuzzApi'
+import { getVideosFromApiWithSearchedText } from '../API/FuzzApi'
 
 export default class Music extends React.Component {
 
@@ -9,7 +10,7 @@ export default class Music extends React.Component {
         super(props)
         this.searchedText = ""
         this.state = {
-          musiques: getMusiqueFromApiWithSearchedText(this.searchedText).then(data => {
+          musiques: getMusiqueFromApiWithSearchedText("").then(data => {
             this.setState({ musiques: data }),
             isLoading = false
           })
@@ -19,7 +20,13 @@ export default class Music extends React.Component {
     _loadMusiques() {
       if (this.searchedText.length >= 0) {
         this.setState({ isLoading: true }) // Lancement du chargement
-        getMusiqueFromApiWithSearchedText(this.searchedText).then(data => {
+        /*getMusiqueFromApiWithSearchedText(this.searchedText).then(data => {
+            this.setState({ 
+              musiques: data,
+              isLoading: false // Arrêt du chargement
+            })
+            */
+           getMusiqueFromApiWithSearchedText("").then(data => {
             this.setState({ 
               musiques: data,
               isLoading: false // Arrêt du chargement
@@ -45,8 +52,7 @@ export default class Music extends React.Component {
 
     _displayDetailForMusique = (idMusique) => {
         console.log("Display musique with id " + idMusique)
-        this.props.navigation.navigate("MusiqueDetail", {idMusique: idMusique})
-        //this.props.navigation.navigate('player', {title: 'test', filepath: "./Music/images/NotMuchToSay.mp3"});
+        this.props.navigation.navigate("Clip", {Clipid: idMusique})
     }
 
     render() {
@@ -97,3 +103,4 @@ const styles = StyleSheet.create({
       justifyContent: 'center'
     }
   })
+

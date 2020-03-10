@@ -10,7 +10,7 @@
       "web"
     ],
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "default",
     "icon": "./assets/fuzz_and_drums.png",
     "splash": {
       "image": "./assets/fuzz_and_drums.png",

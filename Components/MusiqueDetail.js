@@ -4,6 +4,8 @@ import { getMusiqueFromApiWithId } from '../API/FuzzApi'
 import { Ionicons } from '@expo/vector-icons'
 import { Audio } from 'expo-av'
 
+import SoundCloudWaveform from 'react-native-soundcloud-waveform'
+
 export default class MusiqueDetail extends React.Component {
   
   state = {
@@ -91,7 +93,10 @@ export default class MusiqueDetail extends React.Component {
     }
   }
 
-//{audioBookPlaylist[currentIndex].title}
+
+    setTime = (time) => {
+      playbackInstance.durationMillis();
+    }
 
   renderFileInfo() {
     const { playbackInstance, currentIndex } = this.state
@@ -111,12 +116,20 @@ export default class MusiqueDetail extends React.Component {
   }
 
   render() {
+
     return (
       <View style={styles.container}>
         <Image
           style={styles.albumCover}
           source={require('../Images/cover.jpg')}
         />
+
+        <SoundCloudWaveform
+                waveformUrl={'https://kayzere.me/Musiques/NotMuchToSay.mp3'}
+                percentPlayable={130}
+                percentPlayed={10}
+                setTime={1}
+              />
 
         <View style={styles.controls}>
           <TouchableOpacity style={styles.control} onPress={this.handlePreviousTrack}>

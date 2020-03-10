@@ -18,9 +18,9 @@ export function getMusiqueFromApiWithId(id){
       .catch((error) => console.error(error))
   }
 
-  export function getVideosFromApiWithSearchedText(text){
+  export function getVideosFromApiWithSearchedText(){
     const route = "videos/";
-    const tmp_url = url + route + text
+    const tmp_url = url + route
     return fetch(tmp_url)
       .then((response) => response.json())
       .catch((error) => console.error(error))

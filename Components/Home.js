@@ -1,10 +1,14 @@
 import React from 'react';
-import { View, Text, StyleSheet, Animated, Dimensions, Image, ImageBackground, ScrollView, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, Animated, Dimensions, Image, Easing, ImageBackground, ScrollView, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
 import { getHomeFromApi } from '../API/FuzzApi' 
 import News from '../Components/News'
 import Music from './Music';
 import Concerts from './Concerts';
 import About from './About';
+import FadeIn from '../Components/FadeIn';
+
+
+
 export default class Home extends React.Component {
 
   render() {
@@ -12,24 +16,47 @@ export default class Home extends React.Component {
     return (
 
     <View style={styles.container}>
-
-        <ScrollView>
-          <View elevation={5} style={styles.containerSafe}>
     
-            <TouchableOpacity  onPress={() => this.props.navigation.navigate("News")}>
+
+    <ImageBackground
+      source={require('../Images/speakerBackground2misombre.png')} 
+      style={{  flex:1, resizeMode:'stretch'}} >
+      
+     
+        <ScrollView>
+
+      
+       
+        
+        <FadeIn>
+          <View style={styles.containerSafe}>
+       
+
+          <ImageBackground
+        source={require('../Images/image2.png')} 
+        style={{width: '100%', height: '100%', opacity:0.8, borderRadius:40}} >
+       
+            <TouchableOpacity   onPress={() => this.props.navigation.navigate("News")}   >
 
               <View style={{flexDirection:'row'}}>
                 <Image style={styles.containerIcon} source={require('../Images/icon/newspaper.png')}/>
                 <Text style={styles.containerTextu}>News</Text>
               </View>
                 
-              <News/>
-        
+          
+
             </TouchableOpacity> 
-        </View>
+            </ImageBackground>
+          
+          </View>
+         
+          
 
-
+          
           <View style={styles.containerSafe}>
+          <ImageBackground
+        source={require('../Images/pochettealbumfuzzanddrums.jpg')} 
+        style={{width: '100%', height: '100%', opacity:0.8}} >
             <TouchableOpacity onPress={() => this.props.navigation.navigate("Music")}>
             
               <View style={{flexDirection:'row'}}>
@@ -37,13 +64,16 @@ export default class Home extends React.Component {
                 <Text style={styles.containerTextu}>Music</Text>
               </View>
 
-              <Music style={styles.containerVision}/>
 
             </TouchableOpacity>
+            </ImageBackground>
           </View>
-    
+          
 
           <View style={styles.containerSafe}>
+          <ImageBackground
+          source={require('../Images/cover.jpg')} 
+          style={{width: '100%', height: '100%', opacity:0.8}} >
             <TouchableOpacity onPress={() => this.props.navigation.navigate("Concerts")}>
               
               <View style={{flexDirection:'row'}}>
@@ -51,27 +81,35 @@ export default class Home extends React.Component {
                 <Text style={styles.containerTextu}>Concerts</Text>
               </View>
               
-              <Concerts style={styles.containerVision}/>
+        
 
             </TouchableOpacity>
+            </ImageBackground>
           </View>
 
 
           <View style={styles.containerSafe}>
-            <TouchableOpacity style={{flex:1}}onPress={() => this.props.navigation.navigate("About")}>
+          <ImageBackground
+          source={require('../Images/image1.png')} 
+          style={{width: '100%', height: '100%', opacity:0.8}} >
+            <TouchableOpacity onPress={() => this.props.navigation.navigate("About")}>
               
               <View style={{flexDirection:'row'}}>
                 <Image style={styles.containerIcon} source={require('../Images/icon/About.png')}/>
-                <Text style={styles.containerTextu}></Text>
+                <Text style={styles.containerTextu}>About Us</Text>
               </View>
               
-              <About style={{margin:20}}/>
+  
 
             </TouchableOpacity>
+            </ImageBackground>
           </View>
-
+          </FadeIn>
         </ScrollView>
         
+
+        </ImageBackground>
+
     </View>     
 
     );}
@@ -81,8 +119,9 @@ export default class Home extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    justifyContent:'space-around',
     backgroundColor:'#1B1B1B',
-    margin:-1,
+    
     
     
   },
@@ -90,27 +129,41 @@ const styles = StyleSheet.create({
 
   containerSafe: {
     flex:1,
-    alignItems: 'baseline',
+    alignItems: 'flex-start',
     justifyContent: 'flex-start',
-    margin:30,
-    width:320,
-    height:200,
+    marginLeft:5,
+    marginRight:20,
+    marginBottom:0,
+    marginTop:20,
+    width:undefined,
+    height:150,
     flexDirection:'row',
-    borderStyle:'solid',
-    borderColor:'black',
-    borderWidth: 5,
+    borderTopWidth: 0,
+    elevation: 20, 
+    //backgroundColor:'white',
+    opacity:0.9,
+    // borderRadius:40,
+    // borderStyle:'solid',
+    // borderColor:'black',
+    // borderWidth: 5,
 
   },
 
   containerTextu: {
     fontSize:40,
-    color:'white',
+    justifyContent:'flex-end',
+    color:'#8b0000',
     fontWeight: 'bold', 
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.8,   
     shadowRadius: 2,
     opacity:1,
-    marginLeft:10,
+    //marginLeft:10,
+    textShadowColor: 'white',
+    textShadowOffset: {width: 1, height: 1},
+    textShadowRadius: 1,
+    elevation:30,
+    marginLeft:-10,
 
   },
 
@@ -123,48 +176,26 @@ const styles = StyleSheet.create({
     
   },
 
-  textStyles:{
-    fontWeight: 'bold', 
-    fontSize:10, 
-    color:'red',
-    
-  },
-
-  imageBack:{
-    flex:1,  
-    width: undefined, 
-    height:undefined, 
-    justifyContent:'center',
-    margin:-20,
-    backgroundColor:'black',
-
-  },
-
   containerIcon:{
-    width: 50, 
-    height:50, 
-    justifyContent:'center',
-    marginLeft:10,
+    width: 150, 
+    height:150, 
+    marginLeft:40,
+    tintColor:'white',
+    shadowColor: 'rgba(0, 0, 0, 0.75)',
+    shadowOffset: { width: -1, height: 2 },
+    shadowOpacity: 1,
+    shadowRadius: 1,
+    opacity:0.6,
+
+    
+    //justifyContent:'flex-start',
+    
+    //marginLeft:10,
 
   },
+  
 
-  imageBackScroll:{
-    flex: 1,
-    resizeMode:'stretch', 
-    width: undefined, 
-    height:undefined, 
-    justifyContent:'flex-start',
-    alignContent:'flex-start',
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    margin:30,
-    width:320,
-    height:200,
-    shadowColor: 'white',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    opacity:0.5,
-
-  }
 });
+
+
+      

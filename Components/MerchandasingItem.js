@@ -7,24 +7,23 @@ export default class MerchandasingItem extends React.Component {
     return (
         <TouchableOpacity 
             style={styles.main_container}
-            onPress={() => Linking.openURL('https://thefuzzanddrums.bandcamp.com')}>
+            onPress={() => Linking.openURL(merch.url)}>
             <Text style={styles.title_text}>{merch.title} </Text>
             <Image 
                 style={styles.merchImage}
-                source={require('../Images/pochettealbumfuzzanddrums.jpg')}
+                source={{uri: merch.imageUrl}}
             />
             <Text style={styles.textDescription}> {merch.description}</Text>
             <Text style={styles.textPrice}> {merch.price}</Text> 
         </TouchableOpacity>
     
-
     )
   }
 }
 
 const styles = StyleSheet.create({
   main_container: {
-    flex:1,
+    flex:1/3,
     marginTop:20, 
     alignItems:'center',
     backgroundColor:'black',
@@ -61,5 +60,4 @@ const styles = StyleSheet.create({
   }
 
 });
-
 

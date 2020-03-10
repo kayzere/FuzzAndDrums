@@ -10,7 +10,8 @@ import Concerts from '../Components/Concerts';
 import ConcertDetail from '../Components/ConcertDetail';
 import Home from '../Components/Home';
 import Music from '../Components/Music';
-import MusiqueDetail from '../Components/MusiqueDetail'
+import Test from '../Components/AudioPlayer/Test'
+import Player from '../Components/AudioPlayer/Player'
 import Merchandising from '../Components/Merchandising';
 import Newsletter from '../Components/Newsletter';
 import News from '../Components/News';
@@ -18,14 +19,6 @@ import About from '../Components/About';
 import DrawerTrigger from '../Components/DrawerTrigger';
 import VideoClips from '../Components/videoclips';
 import Clip from '../Components/clip';
-
-// test lloyd
-
-import { Text, View, Button, Animated, PanResponder, Dimensions, Easing, TouchableOpacity, SafeAreaView } from 'react-native';
-
-//import SongScreen from '../Components/Music/Song';
-//import SearchScreen from '../Components/Music/Search';
-//import StreamScreen from '../Components/Music/Stream';
 
 // DRAWER CONFIGURATION
 
@@ -68,8 +61,6 @@ const HomeStack = createStackNavigator({
         headerRight: () => <DrawerTrigger/>,
         headerTitleStyle: {
           color: 'white',
-          fontSize: 25,
-          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
@@ -89,8 +80,6 @@ const ConcertsStack = createStackNavigator({
         headerRight: () => <DrawerTrigger/>,
         headerTitleStyle: {
           color: 'white',
-          fontSize: 25,
-          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
@@ -106,8 +95,6 @@ const ConcertsStack = createStackNavigator({
           headerRight: () => <DrawerTrigger/>,
           headerTitleStyle: {
             color: 'white',
-            fontSize: 25,
-            fontWeight: 'bold'
          },
          headerStyle: {
           backgroundColor: 'black',
@@ -126,8 +113,6 @@ const MusicStack = createStackNavigator({
         headerRight: () => <DrawerTrigger/>,
         headerTitleStyle: {
           color: 'white',
-          fontSize: 25,
-          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
@@ -136,16 +121,14 @@ const MusicStack = createStackNavigator({
           color: 'red'
        }
     }},
-    MusiqueDetail: {
-      screen: MusiqueDetail,
+    Player: {
+      screen: Player,
         navigationOptions: {
-        title: '',
+        title: 'On essaye',
         headerRight: () => <DrawerTrigger/>,
         headerTintColor: 'red',
         headerTitleStyle: {
           color: 'white',
-          fontSize: 25,
-          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
@@ -153,60 +136,6 @@ const MusicStack = createStackNavigator({
     }
   }
 })
-
-/*
-SearchScreen: {
-    screen: SearchScreen,
-        navigationOptions: {
-        title: 'SearchScreen',
-        headerRight: () => <DrawerTrigger/>,
-        headerTitleStyle: {
-          color: 'white',
-          fontSize: 25,
-          fontWeight: 'bold'
-       },
-       headerStyle: {
-        backgroundColor: 'black',
-       },
-       headerTintColor: {
-          color: 'red'
-       }
-    }},
-    StreamScreen: {
-      screen: StreamScreen,
-      navigationOptions: {
-          title: 'StreamScreen',
-          headerRight: () => <DrawerTrigger/>,
-          headerTitleStyle: {
-            color: 'white',
-            fontSize: 25,
-            fontWeight: 'bold'
-         },
-         headerStyle: {
-          backgroundColor: 'black',
-         },
-         headerTintColor: {
-            color: 'red'
-         }
-      }},
-    SongScreen: {
-      screen: SongScreen,
-      navigationOptions: {
-          title: 'SongScreen',
-          headerRight: () => <DrawerTrigger/>,
-          headerTitleStyle: {
-            color: 'white',
-            fontSize: 25,
-            fontWeight: 'bold'
-         },
-         headerStyle: {
-          backgroundColor: 'black',
-         },
-         headerTintColor: {
-            color: 'red'
-         }
-      }}
-*/
 
 const VideosStack = createStackNavigator({
   VideoClips: {
@@ -216,8 +145,6 @@ const VideosStack = createStackNavigator({
       headerRight: () => <DrawerTrigger/>,
       headerTitleStyle: {
         color: 'white',
-        fontSize: 25,
-        fontWeight: 'bold'
      },
      headerStyle: {
       backgroundColor: 'black',
@@ -233,8 +160,6 @@ const VideosStack = createStackNavigator({
       headerRight: () => <DrawerTrigger/>,
       headerTitleStyle: {
         color: 'white',
-        fontSize: 25,
-        fontWeight: 'bold'
      },
      headerStyle: {
       backgroundColor: 'black',
@@ -254,8 +179,6 @@ const MerchandisingStack = createStackNavigator({
         headerRight: () => <DrawerTrigger/>,
         headerTitleStyle: {
           color: 'white',
-          fontSize: 25,
-          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
@@ -274,8 +197,6 @@ const NewsletterStack = createStackNavigator({
         headerRight: () => <DrawerTrigger/>,
         headerTitleStyle: {
           color: 'white',
-          fontSize: 25,
-          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',
@@ -294,8 +215,6 @@ const AboutStack = createStackNavigator({
         headerRight: () => <DrawerTrigger/>,
         headerTitleStyle: {
           color: 'white',
-          fontSize: 25,
-          fontWeight: 'bold'
        },
        headerStyle: {
         backgroundColor: 'black',

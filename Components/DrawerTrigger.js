@@ -6,6 +6,7 @@ import { Ionicons } from '@expo/vector-icons';
 import { withNavigation } from 'react-navigation';
 // DrawerActions is a specific type of navigation dispatcher
 import { DrawerActions } from 'react-navigation-drawer';
+import Hamburger from 'react-native-animated-hamburger';
 
 class DrawerTrigger extends React.Component {
 
@@ -18,11 +19,15 @@ class DrawerTrigger extends React.Component {
           this.props.navigation.dispatch(DrawerActions.openDrawer())
         }}
       >
+      
       <Ionicons
-         name={'md-more'}
-         size={40}
-         color={'red'}
+         name={'md-menu'}
+         
+         size={30}
+         color={'#8b0000'}
+         
       />
+   
         
       </TouchableOpacity>
     )
@@ -36,4 +41,3 @@ const styles = StyleSheet.create({
 });
 
 export default withNavigation(DrawerTrigger);
-
