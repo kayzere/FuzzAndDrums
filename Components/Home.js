@@ -1,201 +1,152 @@
 import React from 'react';
-import { View, Text, StyleSheet, Animated, Dimensions, Image, Easing, ImageBackground, ScrollView, TouchableOpacity, FlatList, SafeAreaView } from 'react-native';
-import { getHomeFromApi } from '../API/FuzzApi' 
-import News from '../Components/News'
-import Music from './Music';
-import Concerts from './Concerts';
-import About from './About';
+import { View, Text, StyleSheet, ImageBackground, ScrollView, TouchableOpacity, SafeAreaView } from 'react-native';
 import FadeIn from '../Components/FadeIn';
-
+import * as Animatable from 'react-native-animatable';
 
 
 export default class Home extends React.Component {
 
   render() {
-
+ 
     return (
 
-    <View style={styles.container}>
-    
-
-    <ImageBackground
-      source={require('../Images/speakerBackground2misombre.png')} 
-      style={{  flex:1, resizeMode:'stretch'}} >
-      
-     
-        <ScrollView>
-
-      
-       
-        
+      <SafeAreaView style={styles.container}>
+        <ImageBackground source={require('../Images/speakerBackground2misombre.png')} style={{  flex:1, resizeMode:'stretch'}} > 
         <FadeIn>
-          <View style={styles.containerSafe}>
-       
-
-          <ImageBackground
-        source={require('../Images/image2.png')} 
-        style={{width: '100%', height: '100%', opacity:0.8, borderRadius:40}} >
-       
-            <TouchableOpacity   onPress={() => this.props.navigation.navigate("News")}   >
-
-              <View style={{flexDirection:'row'}}>
-                <Image style={styles.containerIcon} source={require('../Images/icon/newspaper.png')}/>
-                <Text style={styles.containerTextu}>News</Text>
-              </View>
-                
-          
-
-            </TouchableOpacity> 
-            </ImageBackground>
-          
-          </View>
-         
-          
-
-          
-          <View style={styles.containerSafe}>
-          <ImageBackground
-        source={require('../Images/pochettealbumfuzzanddrums.jpg')} 
-        style={{width: '100%', height: '100%', opacity:0.8}} >
-            <TouchableOpacity onPress={() => this.props.navigation.navigate("Music")}>
+          <ScrollView showsVerticalScrollIndicator={false}>
+           
             
-              <View style={{flexDirection:'row'}}>
-                <Image style={styles.containerIcon} source={require('../Images/icon/audio.png')}/>
-                <Text style={styles.containerTextu}>Music</Text>
-              </View>
+                                                      {/*NEWS ITEM*/}
 
+              <TouchableOpacity   onPress={() => this.props.navigation.navigate("News")} >
+                <Animatable.View animation="flipInX" delay={0} duration={1000} iterationCount={1} direction="alternate" View style={styles.containerSafe}>
+                  <ImageBackground source={require('../Images/image2.png')} style={styles.imageBackgrounudStyle} >
+                    <View style={{flexDirection:'row'}}>
+                      <Animatable.Text animation="shake" duration={15000} iterationCount='infinite' style={styles.containerTextu}>News</Animatable.Text>
+                    </View>
+                  </ImageBackground>
+                </Animatable.View>
+              </TouchableOpacity>
 
-            </TouchableOpacity>
-            </ImageBackground>
-          </View>
-          
+                                                      {/*CONCERTS ITEM*/} 
 
-          <View style={styles.containerSafe}>
-          <ImageBackground
-          source={require('../Images/cover.jpg')} 
-          style={{width: '100%', height: '100%', opacity:0.8}} >
-            <TouchableOpacity onPress={() => this.props.navigation.navigate("Concerts")}>
-              
-              <View style={{flexDirection:'row'}}>
-                <Image style={styles.containerIcon} source={require('../Images/icon/concert.png')}/>
-                <Text style={styles.containerTextu}>Concerts</Text>
-              </View>
-              
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("Concert")}>
+                <Animatable.View animation="flipInX" delay={500} duration={1000} iterationCount={1} direction="alternate" View style={styles.containerSafe}>
+                  <ImageBackground source={require('../Images/cover.jpg')} style={styles.imageBackgrounudStyle} >
+                      <View style={{flexDirection:'row'}}>
+                        <Text style={styles.containerTextu}>Concerts</Text>
+                      </View> 
+                  </ImageBackground>
+                </Animatable.View> 
+              </TouchableOpacity>
+
+                                                      {/*MUSIC ITEM*/} 
+
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("Music")}>                                                               
+                <Animatable.View animation="flipInX" delay={1000} duration={1000} iterationCount={1} direction="alternate" View style={styles.containerSafe}>
+                  <ImageBackground source={require('../Images/pochettealbumfuzzanddrums.jpg')} style={styles.imageBackgrounudStyle} >
+                      <View style={{flexDirection:'row'}}>
+                        <Text style={styles.containerTextu}>Music</Text>
+                      </View>
+                  </ImageBackground>
+                </Animatable.View>
+              </TouchableOpacity>
+
+                                                      {/*VIDEOS ITEM*/} 
+
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("VideoClips")}>
+              <Animatable.View animation="flipInX" delay={1500} duration={1000} iterationCount={1} direction="alternate" View style={styles.containerSafe}>
+                  <ImageBackground source={require('../Images/boatpic.jpg')} style={styles.imageBackgrounudStyle} >
+                      <View style={{flexDirection:'row'}}>
+                        <Text style={styles.containerTextu}>Videos</Text>
+                      </View>
+                  </ImageBackground>
+                </Animatable.View>
+              </TouchableOpacity>
+
+                                                      {/*MERCH ITEM*/} 
+
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("Merch")}>                                                   
+                <Animatable.View animation="flipInX" delay={2000} duration={1000} iterationCount={1} direction="alternate" View style={styles.containerSafe}>
+                  <ImageBackground source={require('../Images/mediators.jpg')} style={styles.imageBackgrounudStyle} >
+                      <View style={{flexDirection:'row'}}>
+                        <Text style={styles.containerTextu}>Merch</Text>
+                      </View>
+                  </ImageBackground>
+                </Animatable.View>
+              </TouchableOpacity>
+
+                                                      {/*ABOUT US ITEM*/}
+
+              <TouchableOpacity onPress={() => this.props.navigation.navigate("About")}>                                        
+                <Animatable.View animation="flipInX" delay={2500} duration={1000} iterationCount={1} direction="alternate" View style={styles.containerSafe}>
+                  <ImageBackground source={require('../Images/image1.png')} style={styles.imageBackgrounudStyle}>
+                      <View style={{flexDirection:'row'}}>
+                        <Text style={styles.containerTextu}>About Us</Text>
+                      </View>
+                  </ImageBackground>
+                </Animatable.View>
+              </TouchableOpacity>
+
         
-
-            </TouchableOpacity>
-            </ImageBackground>
-          </View>
-
-
-          <View style={styles.containerSafe}>
-          <ImageBackground
-          source={require('../Images/image1.png')} 
-          style={{width: '100%', height: '100%', opacity:0.8}} >
-            <TouchableOpacity onPress={() => this.props.navigation.navigate("About")}>
-              
-              <View style={{flexDirection:'row'}}>
-                <Image style={styles.containerIcon} source={require('../Images/icon/About.png')}/>
-                <Text style={styles.containerTextu}>About Us</Text>
-              </View>
-              
-  
-
-            </TouchableOpacity>
-            </ImageBackground>
-          </View>
+          </ScrollView>
           </FadeIn>
-        </ScrollView>
-        
-
         </ImageBackground>
+      </SafeAreaView>  
+         
 
-    </View>     
-
-    );}
-
+    );
+  }
 }
+
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent:'space-around',
+    justifyContent:'center',
     backgroundColor:'#1B1B1B',
-    
-    
-    
-  },
 
+  },
 
   containerSafe: {
     flex:1,
-    alignItems: 'flex-start',
-    justifyContent: 'flex-start',
-    marginLeft:5,
-    marginRight:20,
-    marginBottom:0,
-    marginTop:20,
-    width:undefined,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom:10,
+    marginTop:10,
+    width:'100%',
     height:150,
     flexDirection:'row',
     borderTopWidth: 0,
     elevation: 20, 
-    //backgroundColor:'white',
-    opacity:0.9,
-    // borderRadius:40,
-    // borderStyle:'solid',
-    // borderColor:'black',
-    // borderWidth: 5,
 
   },
 
   containerTextu: {
-    fontSize:40,
-    justifyContent:'flex-end',
+    fontVariant:'small-caps',
+    fontSize:60,
+    fontFamily:'Roboto',
     color:'#8b0000',
     fontWeight: 'bold', 
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.8,   
-    shadowRadius: 2,
+    fontVariant:[ 'small-caps' ],
     opacity:1,
-    //marginLeft:10,
-    textShadowColor: 'white',
-    textShadowOffset: {width: 1, height: 1},
-    textShadowRadius: 1,
-    elevation:30,
-    marginLeft:-10,
+    marginLeft:5,
+    textShadowColor: '#8b0000',
+    textShadowOffset: {width: 0, height: 0},
+    textShadowRadius: 13,
 
   },
 
-
-  containerVision: {
-    backgroundColor:undefined,
-    marginTop:-30,
-    borderRadius: 50,  
-    alignItems: 'baseline',  
-    
-  },
-
-  containerIcon:{
-    width: 150, 
-    height:150, 
-    marginLeft:40,
-    tintColor:'white',
-    shadowColor: 'rgba(0, 0, 0, 0.75)',
-    shadowOffset: { width: -1, height: 2 },
-    shadowOpacity: 1,
-    shadowRadius: 1,
-    opacity:0.6,
-
-    
-    //justifyContent:'flex-start',
-    
-    //marginLeft:10,
+  imageBackgrounudStyle: {
+    width: '100%', 
+    height: '100%', 
+    opacity:0.9,
 
   },
-  
 
 });
 
+
+// <Image style={{flex:1, margin:10, height:140, justifyContent:'flex-end', alignItems:'center'}} source={require('../Images/NewsT.png')}/>
 
       

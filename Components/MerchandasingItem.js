@@ -5,17 +5,23 @@ export default class MerchandasingItem extends React.Component {
   render() {
     const merch = this.props.merch
     return (
+      <View style={styles.main_container}>
         <TouchableOpacity 
-            style={styles.main_container}
-            onPress={() => Linking.openURL(merch.url)}>
-            <Text style={styles.title_text}>{merch.title} </Text>
+          style={styles.touchableOpacity}
+          onPress={() => Linking.openURL(merch.url)}>
+            <View>
             <Image 
                 style={styles.merchImage}
                 source={{uri: merch.imageUrl}}
             />
-            <Text style={styles.textDescription}> {merch.description}</Text>
-            <Text style={styles.textPrice}> {merch.price}</Text> 
+            </View>
+            <View style={styles.textView}>
+              <Text style={styles.title_text}>{merch.title} </Text>
+              <Text style={styles.textDescription}> {merch.description}</Text>
+              <Text style={styles.textPrice}> {merch.price}</Text> 
+            </View>
         </TouchableOpacity>
+      </View>
     
     )
   }
@@ -23,28 +29,39 @@ export default class MerchandasingItem extends React.Component {
 
 const styles = StyleSheet.create({
   main_container: {
-    flex:1/3,
+
+    
+  },
+
+  touchableOpacity: {
+    flex:1,
+    flexDirection:'row',
     marginTop:20, 
     alignItems:'center',
     backgroundColor:'black',
-    justifyContent: "space-between",
      
+  },
+
+  merchImage:{
+    height:100, 
+    width:100,
+  },
+
+  textView:{
+    marginLeft:10,
+    marginRight:10,
+    flexDirection:'column',
+    alignItems: 'baseline'
+
   },
 
   title_text: { 
     marginTop:10,
-    marginLeft:20,
-    marginRight:20,
     marginBottom:10, 
     fontSize:18,
     fontWeight:'bold',
     color:'white', 
        
-  },
-
-  merchImage:{
-    height:200, 
-    width:200,
   },
 
   textDescription:{

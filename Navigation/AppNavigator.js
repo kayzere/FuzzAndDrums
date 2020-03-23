@@ -10,8 +10,6 @@ import Concerts from '../Components/Concerts';
 import ConcertDetail from '../Components/ConcertDetail';
 import Home from '../Components/Home';
 import Music from '../Components/Music';
-import Test from '../Components/AudioPlayer/Test'
-import Player from '../Components/AudioPlayer/Player'
 import Merchandising from '../Components/Merchandising';
 import Newsletter from '../Components/Newsletter';
 import News from '../Components/News';
@@ -120,21 +118,7 @@ const MusicStack = createStackNavigator({
        headerTintColor: {
           color: 'red'
        }
-    }},
-    Player: {
-      screen: Player,
-        navigationOptions: {
-        title: 'On essaye',
-        headerRight: () => <DrawerTrigger/>,
-        headerTintColor: 'red',
-        headerTitleStyle: {
-          color: 'white',
-       },
-       headerStyle: {
-        backgroundColor: 'black',
-       }
-    }
-  }
+    }}
 })
 
 const VideosStack = createStackNavigator({
